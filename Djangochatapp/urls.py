@@ -19,5 +19,5 @@ from chatap import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',views.Home,name="home")
+    path('',views.Home,name="home"),
 ]

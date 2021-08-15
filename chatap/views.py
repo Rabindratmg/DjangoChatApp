@@ -7,7 +7,7 @@ from . thread import ThreadExample
 def Home(request):
     ThreadExample().start()
     context={
-            "hi":"hello",
+            "hi":"i am practising",
     }
     
     return render(request,"index.html",context)
