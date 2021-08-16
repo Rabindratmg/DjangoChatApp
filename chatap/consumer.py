@@ -21,8 +21,9 @@ class ChatConsumer(WebsocketConsumer):
         
 
     def disconnect(self,event):
+        self.close()
         print(event)
 
 
     def get_data(self,event):
-        print(event['value'])
+        self.send(json.dumps(event['value']))

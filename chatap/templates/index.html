@@ -8,7 +8,30 @@
 </head>
 <body>
     {% block content %}
-        {{ hi }}
+        {{ hi }} Rabee
+        your journey starts in:..
+         <h1 id="add"> </h1>
     {% endblock content%}
+    <script>
+        var socket = new WebSocket("ws://localhost:8000/chat/")
+
+        socket.onopen = function(e){
+            console.log("connection has been established to webserver");
+            console.log(e);
+        }
+
+        socket.onmessage =  function(e){
+            console.log(e.data)
+            
+            document.getElementById("add").innerHTML=e.data;
+        }
+
+        socket.onclose = function(e){
+            console.log("connection has been closed");
+            console.log(e);
+        }
+
+        
+    </script>
 </body>
 </html>
