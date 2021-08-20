@@ -11,14 +11,21 @@
         {{ hi }} Rabee
         your journey starts in:..
          <h1 id="add"> </h1>
+         Enter your message here
+        <input id='input' type="text" value="">
+        <button onclick=sendmessage()>Send</button>
+
     {% endblock content%}
     <script>
         var socket = new WebSocket("ws://localhost:8000/chat/")
 
-        socket.onopen = function(e){
+        socket.onopen = function(e){   
             console.log("connection has been established to webserver");
-            console.log(e);
+         
+           
         }
+
+        
 
         socket.onmessage =  function(e){
             console.log(e.data)
@@ -30,6 +37,15 @@
             console.log("connection has been closed");
             console.log(e);
         }
+        
+
+        function sendmessage(){
+            a=document.getElementById("input").value;
+            socket.send(a)
+            
+
+        }
+        
 
         
     </script>

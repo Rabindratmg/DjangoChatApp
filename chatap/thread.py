@@ -16,8 +16,10 @@ class ThreadExample(threading.Thread):
                         'type':'get_data',
                         'value': i
                     }
+                    
              
                 )
+                time.sleep(1)
 
         except Exception as e:
              print(e)
